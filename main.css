@@ -1,0 +1,122 @@
+:root {
+    --primary:crimson;
+    --dark: rgb(49, 49, 59);
+    --darker: rgb(18, 18, 19);
+    --light: #F3F4F6;
+    --darklight: rgb(202, 210, 214);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'Firs sans', sans-serif;
+}
+
+.input{
+    visibility: hidden;
+}
+
+.input:checked + .label{
+    background-color: salmon;
+}
+
+.label{
+    margin: 2rem;
+    display: flex;
+    width: 80px;
+    height: 40px;
+    background-color: var(--darklight);
+    border-radius: 20px;
+    cursor: pointer;
+    user-select: none;
+
+}
+
+.circle{
+    width: 34px;
+    background-color: white;
+    height: 34px;
+    border-radius: 50%;
+    top: 3px;
+    position: relative;
+    left: 3px;
+    animation: toggleOff .4s linear forwards;
+}
+
+
+.input:checked + .label .circle{
+    animation: toggleOn .4s linear forwards;
+}
+
+@keyframes toggleOff {
+    0%{
+        transform: translateX(40px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+}
+
+@keyframes toggleOn {
+    0%{
+        transform: translateX(0px);
+    }
+    100%{
+        transform: translateX(40px);
+    }
+}
+
+body{
+    background: var(--dark);
+    color: var(--light);
+}
+
+.watch {
+    text-align: center;
+    background-color: var(--darker) ;
+    width: 100%;
+    max-width: 360px;
+    margin: 4rem auto;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+}
+
+.time{
+    font-size: 4rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+
+}
+
+.control {
+    display: flex;   /* just puts this in a row on a line, just to make sure in this case  */
+    align-items: center;
+    justify-content: center;
+}
+
+.control button {
+    appearance: none;    /* resets styling*/
+    background: none;
+    border: none;
+    outline: none;
+    user-select: none;   /* can no longer select the buttons or highlight*/
+    cursor: pointer;   /* when you have your cursor over any of the buttons, changes to hand*/
+
+
+    color: var(--light);
+    font-size: 1.125rem;
+    background-color: var(--primary);
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+
+    transition: 0.4s;
+}
+
+button:hover {
+    opacity: 0.7;
+}
+
+button:active {
+    background-color: var(--dark);
+}
